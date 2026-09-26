@@ -165,7 +165,7 @@ img, svg { display: block; max-width: 100%; }
 
 .btn-primary {
   background: linear-gradient(135deg, var(--primary), var(--secondary));
-  color: var(--text);
+  color: white;
   box-shadow: 0 0 18px rgba(134,76,204,0.35);
 }
 .btn-primary:hover {
@@ -1018,6 +1018,71 @@ img, svg { display: block; max-width: 100%; }
 /* ============================================================
    CONTACT
    ============================================================ */
+
+
+.typing-dots {
+  display: inline-flex;
+  gap: 5px;
+  margin-left: 6px;
+}
+
+.typing-dots span {
+  width: 6px;
+  height: 6px;
+  background: #C65BCF;
+  border-radius: 50%;
+  opacity: 0;
+  animation-timing-function: linear;
+}
+
+.typing-dots span:nth-child(1) {
+  animation: dot1 3s infinite;
+}
+
+.typing-dots span:nth-child(2) {
+  animation: dot2 3s infinite;
+}
+
+.typing-dots span:nth-child(3) {
+  animation: dot3 3s infinite;
+}
+
+@keyframes dot1 {
+  0%, 10% {
+    opacity: 0;
+  }
+  11%, 70% {
+    opacity: 1;
+  }
+  71%, 100% {
+    opacity: 0;
+  }
+}
+
+@keyframes dot2 {
+  0%, 20% {
+    opacity: 0;
+  }
+  21%, 60% {
+    opacity: 1;
+  }
+  61%, 100% {
+    opacity: 0;
+  }
+}
+
+@keyframes dot3 {
+  0%, 30% {
+    opacity: 0;
+  }
+  31%, 50% {
+    opacity: 1;
+  }
+  51%, 100% {
+    opacity: 0;
+  }
+}
+
 .contact-section { background: var(--bg); }
 
 .contact-grid {

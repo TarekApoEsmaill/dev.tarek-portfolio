@@ -21,25 +21,25 @@ const Theme = (function initTheme() {
 
   /* Canvas color palettes — keyed by theme name.
      RGB strings match the CSS brand variables exactly:
-       --primary   #10439F  → 16, 67, 159
-       --secondary #874CCC  → 134, 76, 204
-       --accent1   #C65BCF  → 198, 91, 207              */
+       --primary   #6d4ce0  → 109, 76, 224
+       --secondary #8b6cf0  → 139, 108, 240
+       --accent2   #b39dff  → 179, 157, 255              */
   const palettes = {
     dark: {
-      gridV : '134,76,204',   /* vertical grid lines   */
-      gridH : '16,67,159',    /* horizontal grid lines */
-      node  : '198,91,207',   /* pulsing node dots     */
-      orb1  : '134,76,204',
-      orb2  : '198,91,207',
-      orb3  : '16,67,159',
+      gridV : '139,108,240',   /* vertical grid lines   */
+      gridH : '109,76,224',    /* horizontal grid lines */
+      node  : '179,157,255',   /* pulsing node dots     */
+      orb1  : '139,108,240',
+      orb2  : '109,76,224',
+      orb3  : '91,63,209',
     },
     light: {
-      gridV : '134,76,204',   /* keep brand purple     */
-      gridH : '16,67,159',    /* keep brand blue       */
-      node  : '198,91,207',   /* keep brand magenta    */
-      orb1  : '134,76,204',
-      orb2  : '198,91,207',
-      orb3  : '16,67,159',
+      gridV : '139,108,240',   /* keep brand violet     */
+      gridH : '109,76,224',    /* keep brand deep violet*/
+      node  : '179,157,255',   /* keep brand soft violet*/
+      orb1  : '139,108,240',
+      orb2  : '109,76,224',
+      orb3  : '91,63,209',
     },
   };
 

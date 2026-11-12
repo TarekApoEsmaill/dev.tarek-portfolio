@@ -24,8 +24,9 @@
 }
 
 /* ---------- LIGHT THEME OVERRIDES ----------
-   Only background, surface, text, and border tokens are changed.
-   Brand colors (--primary, --secondary, --accent1, --accent2) are preserved exactly.
+   Background, surface, text, border tokens are changed.
+   --accent2 is darkened for WCAG-AA contrast on light surfaces.
+   --primary, --secondary, --accent1 are preserved exactly.
    -------------------------------------------------- */
 [data-theme="light"] {
   --bg:        #f0eeff;
@@ -35,6 +36,7 @@
   --text-muted:#4a4770;
   --border:    rgba(139, 108, 240, 0.3);
   --glass:     rgba(255, 255, 255, 0.72);
+  --accent2:   #6d4ce0;
 }
 
 html { scroll-behavior: smooth; font-size: 16px; }
@@ -511,6 +513,11 @@ img, svg { display: block; max-width: 100%; }
     0 0 80px rgba(109,76,224,0.15),
     inset 0 0 30px rgba(139,108,240,0.1);
   background: radial-gradient(ellipse at center, rgba(139,108,240,0.12) 0%, rgba(3,3,11,0.9) 70%);
+}
+
+/* Light mode: avatar uses a light surface instead of near-black */
+[data-theme="light"] .avatar-wrap {
+  background: radial-gradient(ellipse at center, rgba(139,108,240,0.12) 0%, rgba(240,238,255,0.9) 70%);
 }
 
 .avatar-svg {
@@ -1176,6 +1183,10 @@ img, svg { display: block; max-width: 100%; }
 
 .form-group input::placeholder,
 .form-group textarea::placeholder { color: rgba(154,152,184,0.45); }
+
+/* Light mode: darker placeholder for readability on white inputs */
+[data-theme="light"] .form-group input::placeholder,
+[data-theme="light"] .form-group textarea::placeholder { color: rgba(74,71,112,0.55); }
 
 .form-group input:focus,
 .form-group textarea:focus {

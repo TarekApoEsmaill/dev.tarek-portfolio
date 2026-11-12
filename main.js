@@ -16,8 +16,8 @@ const Theme = (function initTheme() {
   const root   = document.documentElement;
   const btn    = document.getElementById('themeToggle');
 
-  /* Always start in dark mode */
-  root.setAttribute('data-theme', 'dark');
+  /* Always start in light mode */
+  root.setAttribute('data-theme', 'light');
 
   /* Canvas color palettes — keyed by theme name.
      RGB strings match the CSS brand variables exactly:
@@ -332,18 +332,32 @@ const Theme = (function initTheme() {
 
     if (!valid) return;
 
-    /* Simulate sending */
+    /* Build the WhatsApp message from the form values */
+    const message =
+      'Name: '    + nameEl.value.trim()    + '\n' +
+      'Email: '   + emailEl.value.trim()   + '\n' +
+      'Subject: ' + subjectEl.value.trim() + '\n' +
+      'Message:\n' + msgEl.value.trim();
+
+    const whatsappUrl =
+      'https://wa.me/963952118246?text=' + encodeURIComponent(message);
+
+    /* Prevent duplicate submissions */
     const btn = form.querySelector('button[type="submit"]');
     btn.disabled = true;
-    btnText.textContent = 'Sending…';
+    btnText.textContent = 'Opening WhatsApp…';
 
+    /* Open WhatsApp Click-to-Chat in a new tab */
+    window.open(whatsappUrl, '_blank');
+
+    /* Brief delay for feedback, then reset */
     setTimeout(() => {
       btn.disabled = false;
-      btnText.textContent = 'Send Message ⬡';
+      btnText.textContent = 'Send a WhatsApp message';
       form.reset();
       success.classList.add('show');
       setTimeout(() => success.classList.remove('show'), 5000);
-    }, 1400);
+    }, 800);
   });
 })();
 

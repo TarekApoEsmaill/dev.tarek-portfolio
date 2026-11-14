@@ -374,3 +374,21 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
   });
 });
 
+const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+
+// إظهار الزر فقط عندما ينزل المستخدم بمقدار 300 بكسل
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 300) {
+    scrollToTopBtn.classList.add("show");
+  } else {
+    scrollToTopBtn.classList.remove("show");
+  }
+});
+
+// الصعود السلس إلى أعلى الصفحة عند الضغط
+scrollToTopBtn.addEventListener("click", () => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+});
